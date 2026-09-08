@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!--
+  MATERIALES DE AULA · índice
+  © 2026 Andrés Asensio · CC BY-NC-SA 4.0
+  https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es
+-->
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Andrés Asensio">
+<meta name="theme-color" content="#0F0C18">
+<title>Materiales de aula · 2.º de ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cardo:ital,wght@0,400;1,400&family=Atkinson+Hyperlegible:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* La paleta es la de El pulso de los dioses: palestra al atardecer. Cada
+     material se queda con un color y solo uno —egeo la Terminal, oro la
+     cuerda, terracota la pizzería y el niebla la ciudad, que estaba
+     apalabrado desde que se reservó y por fin tiene dueña—, así que el
+     título de la casa no puede llevar ninguno de ellos: si fuese de oro
+     parecería que el pulso manda sobre los demás. Va en nácar, que es el
+     color de la noche del fondo y no es de nadie. */
+  :root{
+    --noche:#0F0C18; --vitrina:#171226; --vitrina-2:#1F1930; --linea:#372E4E;
+    --tinta:#F2EDE2; --tenue:#A79DB5;
+    --oro:#E9B84E; --egeo:#57B8D6; --terracota:#E2725B; --niebla:#9FB3C8;
+    --nacar:#EFE6F7;
+  }
+  *{box-sizing:border-box}
+  /* El color de la noche va también en html: con el cielo fijo, cualquier
+     tramo de scroll que quede fuera del lienzo asomaría en blanco. */
+  html{background:#150F20}
+  html,body{margin:0}
+  /* EL CIELO. El mismo anochecer del campo: luna pequeña arriba a la
+     derecha, rescoldo cálido abajo y el degradado de cuatro paradas. */
+  body{
+    min-height:100vh;color:var(--tinta);
+    font-family:'Atkinson Hyperlegible',system-ui,sans-serif;line-height:1.62;
+    padding:0 16px 44px;-webkit-text-size-adjust:100%;
+    background:
+      radial-gradient(circle at 86% 8%, rgba(240,230,200,.20) 0 9px,
+        rgba(240,230,200,.07) 9px 17px, rgba(240,230,200,0) 18px),
+      radial-gradient(ellipse 120% 45% at 50% 100%, rgba(233,184,78,.10),
+        rgba(233,184,78,0) 62%),
+      linear-gradient(180deg,#161027 0%,#1B1230 46%,#231738 78%,#150F20 100%);
+    background-attachment:fixed}
+  /* EL CANTO DE LA REGLA. Antes había una greca griega, pero esa es del
+     pulso: coronando la casa parecía que la palestra mandaba sobre lo
+     demás. Ahora el borde superior es el canto graduado de una regla —marca
+     larga, tres cortas, la del medio un punto más alta—, que no es de
+     ninguno de los materiales y sí es el oficio de todos: medir. Va en
+     nácar, el color de la casa. */
+  body::before{content:'';position:fixed;left:0;right:0;top:0;height:18px;z-index:5;
+    pointer-events:none;
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='18'><g fill='none' stroke-linecap='round'><path d='M0.5 18 V5.5' stroke='rgba(239,230,247,.34)' stroke-width='1.3'/><path d='M20.5 18 V9' stroke='rgba(239,230,247,.22)' stroke-width='1'/><path d='M10.5 18 V12.5' stroke='rgba(239,230,247,.15)' stroke-width='1'/><path d='M30.5 18 V12.5' stroke='rgba(239,230,247,.15)' stroke-width='1'/></g></svg>") repeat-x center / 40px 18px,
+      linear-gradient(180deg, rgba(43,32,62,.92), rgba(26,19,40,.6));
+    border-bottom:1px solid rgba(178,150,224,.22)}
+  .envoltorio{max-width:740px;margin:0 auto;padding-top:46px}
+
+  header{margin-bottom:26px}
+  .epigrafe{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2.4px;
+    text-transform:uppercase;color:var(--tenue);margin:0 0 10px}
+  h1{font-family:'Cinzel',serif;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;font-size:clamp(24px,7vw,34px);line-height:1.15;
+    margin:0;color:var(--nacar);text-shadow:0 0 24px rgba(178,150,224,.30)}
+  .lema-casa{font-family:'Cardo',serif;font-style:italic;font-size:16px;
+    color:var(--tenue);margin:8px 0 0}
+  .intro{font-size:15px;color:var(--tenue);margin:20px 0 26px;max-width:60ch}
+
+  /* LAS VITRINAS. Cada material en su caja, con el canto de su color: se
+     reconoce el bando antes de leer el título. */
+  .ficha{display:block;text-decoration:none;color:inherit;position:relative;
+    background:linear-gradient(180deg, var(--vitrina), var(--vitrina-2));
+    border:1px solid var(--linea);border-radius:14px;overflow:hidden;
+    padding:20px 18px 16px;
+    transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease}
+  .ficha::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg, var(--acento), rgba(233,184,78,.35))}
+  .ficha:hover,.ficha:focus-visible{transform:translateY(-3px);
+    border-color:var(--acento);
+    box-shadow:0 14px 34px rgba(0,0,0,.5), 0 0 0 1px rgba(233,184,78,.10)}
+  .ficha:focus-visible{outline:2px solid var(--oro);outline-offset:3px}
+  .jl{--acento:var(--egeo)}
+  .griega{--acento:var(--oro)}
+  /* La pizzería se queda el terracota: es el tomate del toldo de Nick, y
+     además el único de los tres colores de la casa que aún no tenía dueño. */
+  .pizzeria{--acento:var(--terracota)}
+  /* Y la ciudad, el niebla, que llevaba su nombre desde el principio: es el
+     gris azulado de la noche con luz de farola, el único frío de la casa
+     después del egeo y el que menos calienta de los cuatro. En una portada
+     al atardecer, el material nocturno tenía que ser el más apagado. */
+  .ciudad{--acento:var(--niebla)}
+  /* Su sello son dos signos, no uno: cae entre el ¾ de la pizzería —que es
+     de un glifo y ya lleva su excepción— y los de dos letras. Con el cuerpo
+     de J&L se quedaba corto, así que un punto más y algo menos de aire.
+     Y el signo importa: la pizzería enseña ¾ y la ciudad lo continúa hasta
+     el otro lado del cero, que es lo único que la distingue de ella de un
+     vistazo. */
+  .ciudad .sello{font-size:16.5px;padding:6px 11px}
+  /* El templo se queda el morado de amatista de Miut, que no lo usaba
+     nadie: es el color de la gata y el único que faltaba en la casa. */
+  .templo{--acento:#A98BBC}
+  .templo .sello{font-size:15px;padding:6px 10px}
+  /* El suyo es un sello de un solo signo: con el cuerpo de los otros quedaría
+     un cuadradito perdido al lado de J&L y de ἙΛ. Un punto más grande y con
+     más aire a los lados, y los tres pesan igual en la columna. */
+  .pizzeria .sello{font-size:18px;padding:5px 14px}
+
+  .sello{display:inline-block;font-family:'Cardo',serif;font-weight:700;
+    font-size:15px;letter-spacing:1px;line-height:1;color:#150F20;
+    background:var(--acento);border-radius:7px;padding:7px 10px;margin-bottom:12px}
+  h2{font-family:'Cinzel',serif;font-weight:700;letter-spacing:1.2px;
+    text-transform:uppercase;font-size:19px;line-height:1.25;margin:0 0 4px;
+    color:var(--tinta)}
+  .lema{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--tenue);margin:0 0 12px}
+  .que{font-size:15px;margin:0 0 14px;max-width:58ch}
+  .temas{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .tema{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.1px;
+    text-transform:uppercase;color:var(--tenue);border:1px solid var(--linea);
+    border-radius:20px;padding:5px 10px;background:rgba(15,12,24,.55)}
+  .abrir{font-family:'Cinzel',serif;font-weight:700;font-size:12px;
+    letter-spacing:2px;text-transform:uppercase;color:var(--acento)}
+  .ficha:hover .abrir{text-shadow:0 0 14px currentColor}
+
+  /* EL SEPARADOR. Antes era la cuerda del campo, con su nudo de oro: otra
+     cosa prestada del pulso, y encima repetida entre cada dos fichas. Ahora
+     es un tramo de regla —la misma que corona la página—: una línea fina de
+     nácar, sus marcas de graduación y el cero en el centro. Y el cero se va
+     hacia la ficha que señalas, que era el gesto que tenía el nudo y valía
+     la pena conservar: el menú se mide, no se estira. */
+  .separador{position:relative;height:34px;margin:2px 0;display:flex;
+    align-items:center;pointer-events:none}
+  .separador i{position:absolute;left:8px;right:8px;height:11px;
+    border-top:1px solid rgba(239,230,247,.20);
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='11'><path d='M0.5 0 V6' stroke='rgba(239,230,247,.20)' stroke-width='1' fill='none'/><path d='M12.5 0 V3.5' stroke='rgba(239,230,247,.11)' stroke-width='1' fill='none'/></svg>") repeat-x left top / 24px 11px}
+  .cero{position:absolute;left:50%;width:15px;height:15px;margin-left:-7.5px;
+    border-radius:50%;border:1.5px solid rgba(239,230,247,.55);
+    background:radial-gradient(circle at 40% 35%, rgba(255,255,255,.30), rgba(178,150,224,.16));
+    box-shadow:0 0 12px rgba(178,150,224,.35);
+    transition:transform .35s cubic-bezier(.3,1.2,.5,1)}
+  .ficha:hover + .separador .cero{transform:translateX(-42px)}
+  .separador:has(+ .ficha:hover) .cero{transform:translateX(42px)}
+
+  /* el enlace a la línea del tiempo: fuera de las vitrinas, en nácar, que
+     no es de ningún material */
+  .alaLinea{margin:26px 0 0;text-align:center}
+  .alaLinea a{font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:2px;
+    text-transform:uppercase;color:var(--nacar);text-decoration:none;
+    border-bottom:1px solid rgba(239,230,247,.32)}
+  .alaLinea a:hover{border-bottom-color:var(--nacar);text-shadow:0 0 14px rgba(239,230,247,.5)}
+  .alaLinea span{display:block;font-family:'Cardo',serif;font-style:italic;font-size:14px;
+    color:var(--tenue);margin-top:5px}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--linea);
+    font-size:12px;color:var(--tenue)}
+  /* La licencia es de la casa, no de ningún material: va en nácar, igual que
+     el título. En oro parecía otra vez cosa del pulso. */
+  footer a{color:var(--nacar);text-decoration:none;
+    border-bottom:1px solid rgba(239,230,247,.32)}
+  footer a:hover{border-bottom-color:var(--nacar)}
+
+  @media (min-width:640px){
+    .ficha{padding:24px 22px 18px}
+    .que{font-size:15.5px}
+  }
+  /* Quien pide menos movimiento no lo tiene: ni el alzado de la vitrina ni el
+     tirón del nudo. */
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+    .ficha:hover,.ficha:focus-visible{transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="envoltorio">
+
+<header>
+  <p class="epigrafe">Matemáticas · 2.º de ESO</p>
+  <h1>Materiales de aula</h1>
+  <p class="lema-casa">Manipulativos para mirar lo que se calcula</p>
+</header>
+
+<p class="intro">Cinco aplicaciones para practicar en clase o en casa. Cada una
+es un solo archivo: se abren en el navegador, funcionan en móvil y en pizarra
+digital y no piden instalar nada ni crear cuentas.</p>
+
+<a class="ficha jl" href="https://diazepamina-creator.github.io/terminal-jl/">
+  <span class="sello">J&amp;L</span>
+  <h2>Terminal de Despacho J&amp;L</h2>
+  <p class="lema">Álgebra · material del Dossier del Transportista</p>
+  <p class="que">Misiones de una empresa de transportes, con tres máquinas que
+  se abren cuando hacen falta: el camión operativo para reducir expresiones, la
+  báscula de muelle para resolver ecuaciones y la bodega para las de segundo
+  grado.</p>
+  <div class="temas">
+    <span class="tema">lenguaje algebraico</span>
+    <span class="tema">monomios</span>
+    <span class="tema">notables</span>
+    <span class="tema">ecuaciones</span>
+    <span class="tema">sistemas</span>
+    <span class="tema">2.º grado</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha griega" href="https://diazepamina-creator.github.io/pulso-de-los-dioses/">
+  <span class="sello">ἙΛ</span>
+  <h2>El pulso de los dioses</h2>
+  <p class="lema">Números enteros · ἑλκυστίνδα</p>
+  <p class="que">Dos cuadrillas tiran de una cuerda: los de la derecha suman y
+  los de la izquierda restan, y donde para la bandera es el resultado. Dieciséis
+  misiones que van del valor absoluto a las operaciones combinadas con
+  paréntesis, con pociones que multiplican la fuerza y un rayo de Zeus para
+  quien se retira.</p>
+  <div class="temas">
+    <span class="tema">valor absoluto</span>
+    <span class="tema">orden</span>
+    <span class="tema">suma y resta</span>
+    <span class="tema">producto</span>
+    <span class="tema">jerarquía</span>
+    <span class="tema">paréntesis</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha pizzeria" href="https://diazepamina-creator.github.io/pizzeria-de-nick/">
+  <span class="sello">¾</span>
+  <h2>La pizzería de Nick</h2>
+  <p class="lema">Fracciones · comparación</p>
+  <p class="que">Once pedidos en el mostrador. La grapadora junta trozos y
+  divide arriba y abajo; el cortador los parte y multiplica: con esos dos
+  gestos se comparan fracciones, del mismo denominador hasta el encargo por
+  teléfono, donde ya no hay cortador que llegue y la multiplicación en cruz
+  aparece demostrada. Cada pedido empieza con una apuesta en la pizarra y
+  termina en la regla.</p>
+  <div class="temas">
+    <span class="tema">fracciones equivalentes</span>
+    <span class="tema">comparación</span>
+    <span class="tema">denominador común</span>
+    <span class="tema">multiplicación en cruz</span>
+    <span class="tema">recta numérica</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha ciudad" href="https://diazepamina-creator.github.io/numeros-partidos/">
+  <span class="sello">−¾</span>
+  <h2>Los números partidos</h2>
+  <p class="lema">Números racionales · la ciudad</p>
+  <p class="que">Ocho casos en una ciudad de los años treinta, y una sola
+  herramienta: la cinta métrica que tiende Liz. Cada fracción es un punto de una
+  calle —con su sitio, su nombre y a veces varios nombres para el mismo sitio—,
+  y de ahí sale todo lo demás: comparar es mirar quién queda a la derecha, sumar
+  es juntar tramos, y las deudas siguen la cinta hacia la izquierda del cero.
+  Con acta imprimible de lo que se averiguó en cada caso.</p>
+  <div class="temas">
+    <span class="tema">recta numérica</span>
+    <span class="tema">equivalencia</span>
+    <span class="tema">comparación</span>
+    <span class="tema">exacto y periódico</span>
+    <span class="tema">suma y resta</span>
+    <span class="tema">fracción de cantidad</span>
+    <span class="tema">parte de una parte</span>
+    <span class="tema">negativos</span>
+    <span class="tema">castellano i valencià</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha templo" href="https://diazepamina-creator.github.io/templo-de-miut/">
+  <span class="sello">1001</span>
+  <h2>El templo de Miut</h2>
+  <p class="lema">Divisibilidad · primos · mcd y mcm</p>
+  <p class="que">Ocho salas de un templo egipcio y una gata que cruza el pasillo
+  saltando siempre lo mismo. Múltiplos donde cae, divisores con el salto que llega justo,
+  el mcm donde dos gatas coinciden y el mcd como la baldosa cuadrada más grande que llena
+  un suelo. Con el granero de la división, la escalera de Euclides, los engranajes del
+  relojero, el mural de los cien y un taller de práctica con hoja imprimible. Vale para
+  primero y para segundo.</p>
+  <div class="temas">
+    <span class="tema">múltiplos y divisores</span>
+    <span class="tema">resto</span>
+    <span class="tema">primos</span>
+    <span class="tema">mcd y mcm</span>
+    <span class="tema">euclides</span>
+    <span class="tema">criterios</span>
+    <span class="tema">1.º y 2.º</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<!-- LA OTRA PUERTA. No es un material más, así que no lleva vitrina: va
+     debajo de las cuatro, en letra de la casa, como una nota al pie que
+     invita a mirar. -->
+<p class="alaLinea"><a href="linea.html">La línea del tiempo →</a>
+  <span>Las cuatro épocas en orden, y quién trabaja en cada una.</span></p>
+
+<footer>
+  © 2026 Andrés Asensio ·
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a><br>
+  La Terminal de Despacho J&amp;L surge del proyecto de innovación educativa
+  MAT180 (Generalitat Valenciana).
+</footer>
+
+</div>
+</body>
+</html>
