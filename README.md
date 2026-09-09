@@ -6,7 +6,7 @@ pizarra digital, y no necesita instalar nada ni crear cuentas.
 
 👉 **[Abrir la portada](https://diazepamina-creator.github.io/)**
 
-Este repositorio es la **casa**: la portada con las cinco aplicaciones y la
+Este repositorio es la **casa**: la portada con las ocho aplicaciones y la
 [línea del tiempo](https://diazepamina-creator.github.io/linea.html), que las
 pone en orden con la gente que trabaja en cada una. Las aplicaciones viven cada
 una en el suyo.
@@ -20,6 +20,9 @@ una en el suyo.
 | ¾ | [La pizzería de Nick](https://diazepamina-creator.github.io/pizzeria-de-nick/) | Fracciones y comparación |
 | −¾ | [Los números partidos](https://diazepamina-creator.github.io/numeros-partidos/) | Números racionales |
 | 1001 | [El templo de Miut](https://diazepamina-creator.github.io/templo-de-miut/) | Divisibilidad, primos, mcd y mcm |
+| 56 | [La obra de Jefeops](https://diazepamina-creator.github.io/obra-de-jefeops/) | Cuerpos y volúmenes |
+| 10⁴ | [El recuento de Jefén Giskan](https://diazepamina-creator.github.io/recuento-de-jefen-giskan/) | Potencias de diez y notación científica |
+| π·r² | [El taller de Exequias](https://diazepamina-creator.github.io/taller-de-exequias/) | Áreas y capacidad |
 
 ## Autoría y licencia
 
