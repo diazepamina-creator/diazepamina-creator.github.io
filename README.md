@@ -6,7 +6,7 @@ pizarra digital, y no necesita instalar nada ni crear cuentas.
 
 👉 **[Abrir la portada](https://diazepamina-creator.github.io/)**
 
-Este repositorio es la **casa**: la portada con las diez aplicaciones y la
+Este repositorio es la **casa**: la portada con las once aplicaciones y la
 [línea del tiempo](https://diazepamina-creator.github.io/linea.html), que las
 pone en orden con la gente que trabaja en cada una. Las aplicaciones viven cada
 una en el suyo.
@@ -25,6 +25,7 @@ una en el suyo.
 | π·r² | [El taller de Exequias](https://diazepamina-creator.github.io/taller-de-exequias/) | Áreas y capacidad |
 | 1/6 | [Las justas de Cachalote del Lago](https://diazepamina-creator.github.io/justas-de-cachalote/) | Azar y probabilidad |
 | 2⁶⁴ | [La corte de Jefarturo](https://diazepamina-creator.github.io/corte-de-jefarturo/) | Potencias y raíces |
+| (3, 5) | [El estanque de Jefeyasu](https://diazepamina-creator.github.io/estanque-de-jefeyasu/) | Sistemas de ecuaciones |
 
 ## Autoría y licencia
 
