@@ -206,6 +206,72 @@
     border-bottom:1px solid rgba(239,230,247,.32)}
   footer a:hover{border-bottom-color:var(--nacar)}
 
+
+  /* ── LAS PUERTAS ──────────────────────────────────────────────────────
+     Las vitrinas se ven todas: el catálogo entero es parte del sitio, y
+     saber lo que viene después anima. Pero las que aún no tocan están
+     CERRADAS: sin color, atenuadas, con un cerrojo donde iba el «Abrir».
+     Esto no guarda un secreto —el código de esta página se lee con dos
+     clics—: guarda el ritmo. Lo que corta es el clic ocioso del primer
+     día, el «voy a abrirlas todas a ver qué hay». Contra eso funciona
+     igual que un candado. */
+  .ficha.cerrada{filter:grayscale(1);opacity:.72;cursor:pointer}
+  .ficha.cerrada:hover,.ficha.cerrada:focus-visible{transform:none;opacity:.9;
+    border-color:var(--linea);box-shadow:none}
+  .ficha.cerrada .abrir{display:none}
+  .cerrojo{display:none}
+  .ficha.cerrada .cerrojo{display:inline-flex;align-items:center;gap:8px;
+    font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:2px;
+    text-transform:uppercase;color:var(--tenue)}
+  .cerrojo svg{width:12px;height:14px;display:block;flex:none}
+
+  /* EL POP-UP DE LA CASA. El mismo de la terminal y del templo: una caja
+     con su cabeza, su cuerpo y un pie donde está la salida. Tres maneras
+     de salir —el botón, Escape y pinchar fuera—, el foco entra al abrir y
+     vuelve a la vitrina al cerrar. */
+  .modal{position:fixed;inset:0;background:rgba(10,7,17,.84);backdrop-filter:blur(3px);
+    display:grid;place-items:center;padding:16px;z-index:60;overflow:auto}
+  .modal[hidden]{display:none}
+  .modal .caja{width:min(440px,100%);
+    background:linear-gradient(180deg, var(--vitrina-2), var(--vitrina));
+    border:1px solid var(--linea);border-radius:16px;padding:17px 19px 15px;
+    box-shadow:0 24px 60px rgba(0,0,0,.55);max-height:92vh;overflow:auto}
+  .modal .cabeza{display:flex;align-items:center;gap:12px;
+    padding-bottom:11px;margin-bottom:13px;border-bottom:1px solid var(--linea)}
+  .modal .cabeza svg{width:20px;height:23px;display:block;flex:none;color:var(--oro)}
+  .modal h3{font-family:'Cinzel',serif;font-weight:700;letter-spacing:1.6px;
+    text-transform:uppercase;font-size:15px;margin:0;color:var(--tinta)}
+  .modal .apostilla{font-family:'Space Mono',monospace;font-size:10.5px;
+    letter-spacing:1.4px;text-transform:uppercase;color:var(--tenue);margin:4px 0 0}
+  .modal label{display:block;font-family:'Space Mono',monospace;font-size:10.5px;
+    letter-spacing:1.4px;text-transform:uppercase;color:var(--tenue);margin:0 0 6px}
+  .modal input{width:100%;box-sizing:border-box;background:var(--noche);
+    border:1px solid var(--linea);border-radius:9px;padding:11px 12px;
+    color:var(--tinta);font-family:'Space Mono',monospace;font-size:14px;
+    letter-spacing:1px}
+  .modal input:focus{outline:none;border-color:var(--oro)}
+  .modal .pista{font-size:13px;color:var(--tenue);margin:10px 0 0;line-height:1.5}
+  .modal .aviso{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:1px;
+    min-height:17px;margin:9px 0 0;color:var(--tenue)}
+  .modal .aviso.bien{color:var(--oro)}
+  .modal .aviso.mal{color:var(--terracota)}
+  .modal .pie{display:flex;gap:9px;flex-wrap:wrap;
+    padding-top:13px;margin-top:14px;border-top:1px solid var(--linea)}
+  .modal .b{font-family:'Cinzel',serif;font-weight:700;font-size:11.5px;letter-spacing:1.3px;
+    text-transform:uppercase;color:var(--noche);background:var(--oro);
+    border:1px solid var(--oro);border-radius:9px;padding:10px 13px;cursor:pointer}
+  .modal .b2{color:var(--tenue);background:none;border-color:var(--linea)}
+  .modal .b2:hover{color:var(--tinta);border-color:var(--tenue)}
+  .modal .b:focus-visible{outline:2px solid var(--tinta);outline-offset:2px}
+
+  /* LA CUENTA DE LAS PUERTAS. Al pie, en letra pequeña: cuántas están
+     abiertas y la manera de volver a cerrarlas todas. */
+  .puertas{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.3px;
+    text-transform:uppercase;color:var(--tenue);margin:22px 0 0;text-align:center}
+  .puertas button{font:inherit;color:var(--tenue);background:none;border:0;padding:0;
+    cursor:pointer;border-bottom:1px solid rgba(167,157,181,.45)}
+  .puertas button:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
+
   @media (min-width:640px){
     .ficha{padding:24px 22px 18px}
     .que{font-size:15.5px}
@@ -231,7 +297,7 @@
 es un solo archivo: se abren en el navegador, funcionan en móvil y en pizarra
 digital y no piden instalar nada ni crear cuentas.</p>
 
-<a class="ficha jl" href="https://diazepamina-creator.github.io/terminal-jl/">
+<a class="ficha jl" data-llave="terminal-jl" href="https://diazepamina-creator.github.io/terminal-jl/">
   <span class="sello">J&amp;L</span>
   <h2>Terminal de Despacho J&amp;L</h2>
   <p class="lema">Álgebra · material del Dossier del Transportista</p>
@@ -248,11 +314,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">2.º grado</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha griega" href="https://diazepamina-creator.github.io/pulso-de-los-dioses/">
+<a class="ficha griega" data-llave="pulso-de-los-dioses" href="https://diazepamina-creator.github.io/pulso-de-los-dioses/">
   <span class="sello">ἙΛ</span>
   <h2>El pulso de los dioses</h2>
   <p class="lema">Números enteros · ἑλκυστίνδα</p>
@@ -270,11 +337,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">paréntesis</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha pizzeria" href="https://diazepamina-creator.github.io/pizzeria-de-nick/">
+<a class="ficha pizzeria" data-llave="pizzeria-de-nick" href="https://diazepamina-creator.github.io/pizzeria-de-nick/">
   <span class="sello">¾</span>
   <h2>La pizzería de Nick</h2>
   <p class="lema">Fracciones · comparación</p>
@@ -292,11 +360,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">recta numérica</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha ciudad" href="https://diazepamina-creator.github.io/numeros-partidos/">
+<a class="ficha ciudad" data-llave="numeros-partidos" href="https://diazepamina-creator.github.io/numeros-partidos/">
   <span class="sello">−¾</span>
   <h2>Los números partidos</h2>
   <p class="lema">Números racionales · la ciudad</p>
@@ -318,11 +387,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">castellano i valencià</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha templo" href="https://diazepamina-creator.github.io/templo-de-miut/">
+<a class="ficha templo" data-llave="templo-de-miut" href="https://diazepamina-creator.github.io/templo-de-miut/">
   <span class="sello">1001</span>
   <h2>El templo de Miut</h2>
   <p class="lema">Divisibilidad · primos · mcd y mcm</p>
@@ -342,11 +412,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">1.º y 2.º</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha obra" href="https://diazepamina-creator.github.io/obra-de-jefeops/">
+<a class="ficha obra" data-llave="obra-de-jefeops" href="https://diazepamina-creator.github.io/obra-de-jefeops/">
   <span class="sello">56</span>
   <h2>La obra de Jefeops</h2>
   <p class="lema">Cuerpos y volúmenes · codos y palmos</p>
@@ -366,11 +437,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">pendiente</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha estepa" href="https://diazepamina-creator.github.io/recuento-de-jefen-giskan/">
+<a class="ficha estepa" data-llave="recuento-de-jefen-giskan" href="https://diazepamina-creator.github.io/recuento-de-jefen-giskan/">
   <span class="sello">10⁴</span>
   <h2>El recuento de Jefén Giskan</h2>
   <p class="lema">Potencias de diez · notación científica</p>
@@ -389,11 +461,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">producto de potencias</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha taller" href="https://diazepamina-creator.github.io/taller-de-exequias/">
+<a class="ficha taller" data-llave="taller-de-exequias" href="https://diazepamina-creator.github.io/taller-de-exequias/">
   <span class="sello">π·r²</span>
   <h2>El taller de Exequias</h2>
   <p class="lema">Áreas y capacidad · el taller de ánforas</p>
@@ -414,11 +487,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">litro</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha justas" href="https://diazepamina-creator.github.io/justas-de-cachalote/">
+<a class="ficha justas" data-llave="justas-de-cachalote" href="https://diazepamina-creator.github.io/justas-de-cachalote/">
   <span class="sello">1/6</span>
   <h2>Las justas de Cachalote del Lago</h2>
   <p class="lema">Azar y probabilidad · el patio de armas</p>
@@ -439,11 +513,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">juego justo</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha corte" href="https://diazepamina-creator.github.io/corte-de-jefarturo/">
+<a class="ficha corte" data-llave="corte-de-jefarturo" href="https://diazepamina-creator.github.io/corte-de-jefarturo/">
   <span class="sello">2⁶⁴</span>
   <h2>La corte de Jefarturo</h2>
   <p class="lema">Potencias y raíces · el castillo</p>
@@ -464,11 +539,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">doblar contra sumar</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
 
-<a class="ficha estanque" href="https://diazepamina-creator.github.io/estanque-de-jefeyasu/">
+<a class="ficha estanque" data-llave="estanque-de-jefeyasu" href="https://diazepamina-creator.github.io/estanque-de-jefeyasu/">
   <span class="sello">(3, 5)</span>
   <h2>El estanque de Jefeyasu</h2>
   <p class="lema">Sistemas de ecuaciones · el estanque</p>
@@ -489,9 +565,10 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">dos rectas</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
-<a class="ficha comite" href="https://diazepamina-creator.github.io/comite-de-reclamaciones/">
+<a class="ficha comite" data-llave="comite-de-reclamaciones" href="https://diazepamina-creator.github.io/comite-de-reclamaciones/">
   <span class="sello">130 %</span>
   <h2>El comité de reclamaciones</h2>
   <p class="lema">Estadística y gráficos · la fábrica</p>
@@ -512,9 +589,10 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">gráficas que mienten</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
-<a class="ficha pasteleria" href="https://diazepamina-creator.github.io/pasteleria-de-nicoleta/">
+<a class="ficha pasteleria" data-llave="pasteleria-de-nicoleta" href="https://diazepamina-creator.github.io/pasteleria-de-nicoleta/">
   <span class="sello">3 : 2</span>
   <h2>La pastelería de Nicoleta</h2>
   <p class="lema">Proporcionalidad y porcentajes · la calle</p>
@@ -535,6 +613,7 @@ digital y no piden instalar nada ni crear cuentas.</p>
     <span class="tema">descuentos y aumentos</span>
   </div>
   <span class="abrir">Abrir →</span>
+  <span class="cerrojo"><svg viewBox="0 0 13 15" aria-hidden="true"><path d="M3.3 6.5V4.3a3.2 3.2 0 0 1 6.4 0v2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1.3" y="6.5" width="10.4" height="7.7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="10.3" r="1.05" fill="currentColor"/></svg>Cerrada</span>
 </a>
 
 <!-- LA OTRA PUERTA. No es un material más, así que no lleva vitrina: va
@@ -542,6 +621,12 @@ digital y no piden instalar nada ni crear cuentas.</p>
      a mirar. -->
 <p class="alaLinea"><a href="linea.html">La línea del tiempo →</a>
   <span>De Egipto al futuro, en orden, y quién trabaja en cada época.</span></p>
+
+<!-- LA CUENTA DE LAS PUERTAS. No es un mando, es un dato: cuántas hay
+     abiertas. Y al lado, la manera de volver a cerrarlas, que hace falta
+     al empezar curso o al prestar el ordenador. -->
+<p class="puertas">Puertas: <span id="cuentaPuertas">1 de 13 abiertas</span> ·
+  <button type="button" id="cerrarTodas">cerrarlas todas</button></p>
 
 <footer>
   © 2026 Andrés Asensio ·
@@ -551,5 +636,199 @@ digital y no piden instalar nada ni crear cuentas.</p>
 </footer>
 
 </div>
+
+<!-- LA PUERTA. El pop-up que pide la llave. Va fuera del envoltorio porque
+     se pone por encima de todo. -->
+<div class="modal" id="mPuerta" hidden role="dialog" aria-modal="true" aria-labelledby="puertaTit">
+  <div class="caja">
+    <div class="cabeza">
+      <svg viewBox="0 0 20 23" aria-hidden="true">
+        <path d="M5 10V6.4a5 5 0 0 1 10 0V10" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <rect x="2.2" y="10" width="15.6" height="11.6" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="10" cy="15.8" r="1.6" fill="currentColor"/>
+      </svg>
+      <div>
+        <h3 id="puertaTit">La puerta</h3>
+        <p class="apostilla" id="puertaQue">—</p>
+      </div>
+    </div>
+    <div class="cuerpo">
+      <label for="puertaLlave">La llave</label>
+      <input id="puertaLlave" type="text" autocomplete="off" autocapitalize="off"
+        autocorrect="off" spellcheck="false" placeholder="una palabra">
+      <p class="pista">La dice el profesor cuando toca esa lección. También
+      vale el acta de la aplicación anterior, si la has terminado: pégala
+      aquí entera y esta puerta se abre sola.</p>
+      <p class="aviso" id="puertaAviso" role="status"></p>
+    </div>
+    <div class="pie">
+      <button type="button" class="b" id="puertaProbar">Probar la llave</button>
+      <button type="button" class="b b2" data-cierra>Volver a la casa</button>
+    </div>
+  </div>
+</div>
+<script>
+/* ── LAS LLAVES ──────────────────────────────────────────────────────────
+   Las trece aplicaciones y esta casa viven en el mismo sitio
+   —diazepamina-creator.github.io—, cambia la carpeta pero no el origen. Eso
+   quiere decir que COMPARTEN localStorage: lo que se abre aquí lo sabe la
+   aplicación, y al revés, sin servidor y sin arrastrar nada por la URL.
+
+   Tres maneras de abrir una puerta:
+     · la PALABRA de esa aplicación, la que se dice en clase;
+     · el ACTA de la aplicación anterior en la línea del tiempo, si está
+       bien exprimida —ahí dentro van las huellas, y se cuentan—, que es la
+       llave que se gana quien termina;
+     · la MAESTRA, que abre las trece de golpe y es sólo para el profesor.
+
+   Lo abierto se queda abierto: lo que hay que evitar es correr hacia
+   delante, no volver atrás a repasar. Y la primera de la línea no se cierra
+   nunca, para que la casa nunca parezca rota.                            */
+(function(){
+  'use strict';
+  const ARCA = 'casa.llaves.v1';
+
+  /* LA MAESTRA. Cambia esta palabra por la tuya: es la única que importa
+     de verdad, y está en una sola línea a propósito. Tecléala en tu
+     ordenador, no en el del aula. */
+  const MAESTRA = 'hipatia';
+
+  /* En el orden de la línea del tiempo, que es el orden en el que una
+     acta abre la siguiente. `p` es la palabra, `s` el sello de su acta
+     (las cuatro que aún no tienen acta van en blanco) y `u` las huellas
+     que hay que traer para que cuente como exprimida. */
+  const PUERTAS = [
+    ['obra-de-jefeops',          'acarreo',    null,    0],
+    ['templo-de-miut',           'escriba',    'TMI1.', 16],
+    ['pulso-de-los-dioses',      'soga',       null,    0],
+    ['taller-de-exequias',       'torno',      'TEX1.', 8],
+    ['corte-de-jefarturo',       'heraldo',    'CJF1.', 10],
+    ['justas-de-cachalote',      'yelmo',      'JCL1.', 10],
+    ['recuento-de-jefen-giskan', 'estribo',    'RJG1.', 10],
+    ['estanque-de-jefeyasu',     'junco',      'EJY1.', 10],
+    ['comite-de-reclamaciones',  'escarapela', 'CDR1.', 10],
+    ['numeros-partidos',         'gabardina',  null,    0],
+    ['pizzeria-de-nick',         'bandeja',    null,    0],
+    ['pasteleria-de-nicoleta',   'merengue',   'PNC1.', 10],
+    ['terminal-jl',              'remolque',   null,    0]
+  ];
+  const ORDEN = PUERTAS.map(f => f[0]);
+
+  /* Sin tildes, sin mayúsculas y sin lo que no sea letra: «Nenúfar»,
+     «nenufar» y « NENUFAR » son la misma llave. Una llave que falla por
+     un acento es una llave rota. */
+  const limpia = t => String(t || '').toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+
+  function lee(){
+    try{
+      const o = JSON.parse(localStorage.getItem(ARCA) || '{}');
+      return new Set(Array.isArray(o.a) ? o.a.filter(k => ORDEN.indexOf(k) >= 0) : []);
+    }catch(e){ return new Set(); }
+  }
+  function guarda(){ try{ localStorage.setItem(ARCA, JSON.stringify({v:1, a:[...abiertas]})); }catch(e){} }
+  let abiertas = lee();
+  function abre(k){ if(!abiertas.has(k)){ abiertas.add(k); guarda(); return true; } return false; }
+  abre(ORDEN[0]);
+
+  /* Un acta pegada: se le saca el sello, se mira de quién es, se desenvuelve
+     el base64 y se cuentan las huellas. Si trae bastantes, abre la
+     siguiente de la línea. */
+  function actaAbre(txt){
+    const m = String(txt).match(/([A-Z]{2,4}\d)\.([A-Za-z0-9_-]{8,})/);
+    if(!m) return null;
+    const i = PUERTAS.findIndex(f => f[2] === m[1] + '.');
+    if(i < 0 || i + 1 >= PUERTAS.length) return null;
+    try{
+      const b = m[2].replace(/-/g, '+').replace(/_/g, '/');
+      const o = JSON.parse(decodeURIComponent(escape(atob(b + '==='.slice((b.length + 3) % 4)))));
+      if(!Array.isArray(o.h) || o.h.length < PUERTAS[i][3]) return 'poco';
+    }catch(e){ return null; }
+    return ORDEN[i + 1];
+  }
+
+  /* Probar una llave. Se acepta la palabra de CUALQUIER puerta, esté uno
+     delante de la que esté: si sabes la palabra del estanque, se abre el
+     estanque, y no hay que ir a buscar su vitrina para escribirla. */
+  function prueba(txt, slug){
+    const v = limpia(txt);
+    if(!v) return {q:'vacio'};
+    if(v === limpia(MAESTRA)){ ORDEN.forEach(abre); return {q:'todas'}; }
+    const k = ORDEN.find(k => limpia(PUERTAS[ORDEN.indexOf(k)][1]) === v);
+    if(k){ abre(k); return {q: k === slug ? 'esta' : 'otra', k:k}; }
+    const a = actaAbre(txt);
+    if(a === 'poco') return {q:'poco'};
+    if(a){ abre(a); return {q: a === slug ? 'esta' : 'otra', k:a}; }
+    return {q:'no'};
+  }
+
+  const $ = id => document.getElementById(id);
+  const vitrinas = [...document.querySelectorAll('.ficha[data-llave]')];
+  const nombre = k => { const a = vitrinas.find(a => a.dataset.llave === k);
+    return a ? a.querySelector('h2').textContent.trim() : k; };
+
+  function pinta(){
+    vitrinas.forEach(a => a.classList.toggle('cerrada', !abiertas.has(a.dataset.llave)));
+    const n = ORDEN.filter(k => abiertas.has(k)).length;
+    $('cuentaPuertas').textContent = n + ' de ' + ORDEN.length + ' abierta' + (n === 1 ? '' : 's');
+  }
+
+  /* EL POP-UP. Tres salidas y el foco bien atado, como en la terminal. */
+  let puerta = null, volver = null;
+  const caja = $('mPuerta'), campo = $('puertaLlave'), aviso = $('puertaAviso');
+
+  function abrePuerta(a){
+    puerta = a.dataset.llave; volver = a;
+    $('puertaQue').textContent = nombre(puerta);
+    campo.value = ''; di('', '');
+    caja.hidden = false; campo.focus();
+  }
+  function cierra(){
+    if(!caja.hidden){ caja.hidden = true; puerta = null; if(volver) volver.focus(); volver = null; }
+  }
+  function di(t, c){ aviso.textContent = t; aviso.className = 'aviso' + (c ? ' ' + c : ''); }
+
+  function intenta(){
+    const r = prueba(campo.value, puerta);
+    if(r.q === 'vacio'){ di('escribe la llave', 'mal'); return; }
+    if(r.q === 'no'){ di('esa llave no abre nada', 'mal'); campo.select(); return; }
+    if(r.q === 'poco'){ di('esa acta está a medias: vuelve y termínala', 'mal'); return; }
+    pinta();
+    if(r.q === 'todas'){ di('abiertas las trece', 'bien'); setTimeout(cierra, 900); return; }
+    if(r.q === 'esta'){ di('abierta', 'bien'); const h = volver.href; setTimeout(() => { location.href = h; }, 550); return; }
+    di('se ha abierto ' + nombre(r.k), 'bien');
+  }
+
+  vitrinas.forEach(a => a.addEventListener('click', e => {
+    if(abiertas.has(a.dataset.llave)) return;
+    e.preventDefault(); abrePuerta(a);
+  }));
+  $('puertaProbar').addEventListener('click', intenta);
+  campo.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); intenta(); } });
+  caja.querySelector('[data-cierra]').addEventListener('click', cierra);
+  caja.addEventListener('click', e => { if(e.target === caja) cierra(); });
+  addEventListener('keydown', e => { if(e.key === 'Escape') cierra(); });
+  /* El tabulador no se escapa de la caja mientras está puesta. */
+  caja.addEventListener('keydown', e => {
+    if(e.key !== 'Tab') return;
+    const f = [...caja.querySelectorAll('input,button')];
+    const pri = f[0], ult = f[f.length - 1];
+    if(e.shiftKey && document.activeElement === pri){ e.preventDefault(); ult.focus(); }
+    else if(!e.shiftKey && document.activeElement === ult){ e.preventDefault(); pri.focus(); }
+  });
+
+  $('cerrarTodas').addEventListener('click', () => {
+    if(!confirm('¿Cerrar todas las puertas? Habrá que volver a abrirlas con sus llaves.')) return;
+    abiertas = new Set(); abre(ORDEN[0]); guarda(); pinta();
+  });
+
+  /* Para montar el ordenador del aula sin ir puerta por puerta:
+     …/index.html?llave=… La llave no se queda escrita en la barra. */
+  const par = new URLSearchParams(location.search).get('llave');
+  if(par){ prueba(par, null); try{ history.replaceState(null, '', location.pathname); }catch(e){} }
+
+  pinta();
+})();
+</script>
 </body>
 </html>
