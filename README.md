@@ -19,7 +19,7 @@ una en el suyo.
 | ἙΛ | [El pulso de los dioses](https://diazepamina-creator.github.io/pulso-de-los-dioses/) | Números enteros |
 | ¾ | [La pizzería de Nick](https://diazepamina-creator.github.io/pizzeria-de-nick/) | Fracciones y comparación |
 | −¾ | [Los números partidos](https://diazepamina-creator.github.io/numeros-partidos/) | Números racionales |
-| 1001 | [El templo de Miut](https://diazepamina-creator.github.io/templo-de-miut/) | Divisibilidad, primos, mcd y mcm |
+| 2²·3 | [Las piezas de Miut](https://diazepamina-creator.github.io/miut-piezas/) | Factorización, mcd y mcm |
 | 56 | [La obra de Jefeops](https://diazepamina-creator.github.io/obra-de-jefeops/) | Cuerpos y volúmenes |
 | 10⁴ | [El recuento de Jefén Giskan](https://diazepamina-creator.github.io/recuento-de-jefen-giskan/) | Potencias de diez y notación científica |
 | π·r² | [El taller de Exequias](https://diazepamina-creator.github.io/taller-de-exequias/) | Áreas y capacidad |
