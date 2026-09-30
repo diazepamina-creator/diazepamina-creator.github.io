@@ -16,7 +16,7 @@ una en el suyo.
 | | Aplicación | Contenidos |
 |---|---|---|
 | J&L | [Terminal de Despacho J&L](https://diazepamina-creator.github.io/terminal-jl/) | Álgebra |
-| ἙΛ | [El pulso de los dioses](https://diazepamina-creator.github.io/pulso-de-los-dioses/) | Números enteros |
+| ἙΛ | [La palestra](https://diazepamina-creator.github.io/la-palestra/) | Números enteros |
 | ¾ | [La pizzería de Nick](https://diazepamina-creator.github.io/pizzeria-de-nick/) | Fracciones y comparación |
 | −¾ | [Los números partidos](https://diazepamina-creator.github.io/numeros-partidos/) | Números racionales |
 | 2²·3 | [Las piezas de Miut](https://diazepamina-creator.github.io/miut-piezas/) | Factorización, mcd y mcm |
