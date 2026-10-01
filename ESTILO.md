@@ -75,9 +75,13 @@ Si una app ya tenía sus nombres, se dejan como **alias** de estos
 
 - **La cabecera** (`.cab`):
   - Un sello pequeño, el nombre en `--oro` (19px, mayúsculas) y un subtítulo diminuto en `--tenue`.
-  - A la derecha, las acciones en **letra pequeña y sin cajas** (Guía, Practicar, Ajustes, Aula, Acta…). Se subrayan en `--oro` al pasar el ratón o cuando están activas.
+  - A la derecha, las acciones en **letra pequeña y sin cajas**, siempre las mismas y en este orden: **Guía · Practicar · Ajustes · Aula · Acta**, y al final el **micrófono** (un icono, sin texto) si la app tiene entrevistas. Se subrayan en `--oro` al pasar el ratón o cuando están activas.
+    - *Guía*: un foco que recorre cada parte de la app con una nota; se abre sola la primera vez.
+    - *Practicar*: ejercicios nuevos sin fin, que no cuentan para la ruta pero sí van al acta.
   - En el móvil (≤620px) las acciones bajan a su propia regleta.
 - **Las pestañas** (`.juegos`): una rejilla de 2 a 4 columnas separadas por `--linea`.
+  - Son **los contenidos que trata la app** (en La grapadora: Servir, Comparar, Por teléfono; en Las piezas de Miut: Romper, Lo común, Todo, La pareja), no los modos de usarla: los modos van arriba, en las acciones.
+  - **Cada pestaña tiene su ficha** en papel (anverso y reverso, en formato de 1.º y de 2.º), con códigos QR que abren cada ejercicio en la app. Por eso la pestaña tiene que poder abrirse por enlace: `?j=pestaña&…`.
   - Cada pestaña lleva el nombre en `--oro` y una línea de explicación en `--tenue`, que desaparece a ≤480px.
   - La activa lleva el borde inferior de 3px en `--oro` y el fondo `--brillo`.
 - **Las hojas** (`.panel`): `linear-gradient(180deg,var(--panel2),var(--panel))`, borde `--linea`, `border-radius:13px`, `padding:12px 13px`, `margin-top:9px` y `box-shadow:0 6px 18px var(--sombra)`.
