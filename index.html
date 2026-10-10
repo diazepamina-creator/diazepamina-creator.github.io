@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--
+  Materiales de aula · 1.º y 2.º de ESO
+  © Andrés Asensio · CC BY-NC-ND 4.0 · https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es
+  Versión de aula generada el 2026-10-10 a partir del original 9ec8fe7.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="author" content="Andrés Asensio">
+<meta name="theme-color" content="#0F0C18">
+<title>Materiales de aula · 1.º y 2.º de ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cardo:ital,wght@0,400;1,400&family=Atkinson+Hyperlegible:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noche:#0F0C18; --vitrina:#171226; --vitrina-2:#1F1930; --linea:#372E4E;
+    --tinta:#F2EDE2; --tenue:#A79DB5;
+    --oro:#E9B84E; --egeo:#57B8D6; --terracota:#E2725B; --niebla:#9FB3C8;
+    --nacar:#EFE6F7; --arenisca:#C9A87C;
+  }
+  *{box-sizing:border-box}
+  html{background:#150F20}
+  html,body{margin:0}
+  body{
+    min-height:100vh;color:var(--tinta);
+    font-family:'Atkinson Hyperlegible',system-ui,sans-serif;line-height:1.62;
+    padding:0 16px 44px;-webkit-text-size-adjust:100%;
+    background:
+      radial-gradient(circle at 86% 8%, rgba(240,230,200,.20) 0 9px,
+        rgba(240,230,200,.07) 9px 17px, rgba(240,230,200,0) 18px),
+      radial-gradient(ellipse 120% 45% at 50% 100%, rgba(233,184,78,.10),
+        rgba(233,184,78,0) 62%),
+      linear-gradient(180deg,#161027 0%,#1B1230 46%,#231738 78%,#150F20 100%);
+    background-attachment:fixed}
+  body::before{content:'';position:fixed;left:0;right:0;top:0;height:18px;z-index:5;
+    pointer-events:none;
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='18'><g fill='none' stroke-linecap='round'><path d='M0.5 18 V5.5' stroke='rgba(239,230,247,.34)' stroke-width='1.3'/><path d='M20.5 18 V9' stroke='rgba(239,230,247,.22)' stroke-width='1'/><path d='M10.5 18 V12.5' stroke='rgba(239,230,247,.15)' stroke-width='1'/><path d='M30.5 18 V12.5' stroke='rgba(239,230,247,.15)' stroke-width='1'/></g></svg>") repeat-x center / 40px 18px,
+      linear-gradient(180deg, rgba(43,32,62,.92), rgba(26,19,40,.6));
+    border-bottom:1px solid rgba(178,150,224,.22)}
+  .envoltorio{max-width:740px;margin:0 auto;padding-top:46px}
+
+  header{margin-bottom:26px}
+  .epigrafe{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2.4px;
+    text-transform:uppercase;color:var(--tenue);margin:0 0 10px}
+  h1{font-family:'Cinzel',serif;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;font-size:clamp(24px,7vw,34px);line-height:1.15;
+    margin:0;color:var(--nacar);text-shadow:0 0 24px rgba(178,150,224,.30)}
+  .lema-casa{font-family:'Cardo',serif;font-style:italic;font-size:16px;
+    color:var(--tenue);margin:8px 0 0}
+  .intro{font-size:15px;color:var(--tenue);margin:20px 0 26px;max-width:60ch}
+
+  .ficha{display:block;text-decoration:none;color:inherit;position:relative;
+    background:linear-gradient(180deg, var(--vitrina), var(--vitrina-2));
+    border:1px solid var(--linea);border-radius:14px;overflow:hidden;
+    padding:20px 18px 16px;
+    transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease}
+  .ficha::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg, var(--acento), rgba(233,184,78,.35))}
+  .ficha:hover,.ficha:focus-visible{transform:translateY(-3px);
+    border-color:var(--acento);
+    box-shadow:0 14px 34px rgba(0,0,0,.5), 0 0 0 1px rgba(233,184,78,.10)}
+  .ficha:focus-visible{outline:2px solid var(--oro);outline-offset:3px}
+  .jl{--acento:var(--egeo)}
+  .griega{--acento:var(--oro)}
+  .pizzeria{--acento:var(--terracota)}
+  .ciudad{--acento:var(--niebla)}
+  .ciudad .sello{font-size:16.5px;padding:6px 11px}
+  .templo{--acento:#A98BBC}
+  .obra{--acento:var(--arenisca)}
+  .estepa{--acento:#C08A5E}
+  .taller{--acento:#D2743F}
+  .taller .sello{font-size:16px;padding:6px 10px}
+  .justas{--acento:#C93A46}
+  .justas .sello{font-size:16px;padding:6px 10px}
+  .corte{--acento:#A75E9C}
+  .corte .sello{font-size:16px;padding:6px 10px}
+  .estanque{--acento:#C4553F}
+  .estanque .sello{font-size:15px;padding:6px 10px}
+  .comite{--acento:#A9707E}
+  .comite .sello{font-size:15px;padding:6px 10px}
+  .pasteleria{--acento:#C97E8C}
+  .pasteleria .sello{font-size:15px;padding:6px 10px}
+  .templo .sello{font-size:15px;padding:6px 10px}
+  .estacion{--acento:#7FD1C4}
+  .estacion .sello{font-size:16.5px;padding:6px 11px}
+  .pizzeria .sello{font-size:18px;padding:5px 14px}
+
+  .sello{display:inline-block;font-family:'Cardo',serif;font-weight:700;
+    font-size:15px;letter-spacing:1px;line-height:1;color:#150F20;
+    background:var(--acento);border-radius:7px;padding:7px 10px;margin-bottom:12px}
+  h2{font-family:'Cinzel',serif;font-weight:700;letter-spacing:1.2px;
+    text-transform:uppercase;font-size:19px;line-height:1.25;margin:0 0 4px;
+    color:var(--tinta)}
+  .lema{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--tenue);margin:0 0 12px}
+  .que{font-size:15px;margin:0 0 14px;max-width:58ch}
+  .temas{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .tema{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.1px;
+    text-transform:uppercase;color:var(--tenue);border:1px solid var(--linea);
+    border-radius:20px;padding:5px 10px;background:rgba(15,12,24,.55)}
+  .abrir{font-family:'Cinzel',serif;font-weight:700;font-size:12px;
+    letter-spacing:2px;text-transform:uppercase;color:var(--acento)}
+  .ficha:hover .abrir{text-shadow:0 0 14px currentColor}
+
+  .separador{position:relative;height:34px;margin:2px 0;display:flex;
+    align-items:center;pointer-events:none}
+  .separador i{position:absolute;left:8px;right:8px;height:11px;
+    border-top:1px solid rgba(239,230,247,.20);
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='11'><path d='M0.5 0 V6' stroke='rgba(239,230,247,.20)' stroke-width='1' fill='none'/><path d='M12.5 0 V3.5' stroke='rgba(239,230,247,.11)' stroke-width='1' fill='none'/></svg>") repeat-x left top / 24px 11px}
+  .cero{position:absolute;left:50%;width:15px;height:15px;margin-left:-7.5px;
+    border-radius:50%;border:1.5px solid rgba(239,230,247,.55);
+    background:radial-gradient(circle at 40% 35%, rgba(255,255,255,.30), rgba(178,150,224,.16));
+    box-shadow:0 0 12px rgba(178,150,224,.35);
+    transition:transform .35s cubic-bezier(.3,1.2,.5,1)}
+  .ficha:hover + .separador .cero{transform:translateX(-42px)}
+  .separador:has(+ .ficha:hover) .cero{transform:translateX(42px)}
+
+  .alaLinea{margin:26px 0 0;text-align:center}
+  .alaLinea a{font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:2px;
+    text-transform:uppercase;color:var(--nacar);text-decoration:none;
+    border-bottom:1px solid rgba(239,230,247,.32)}
+  .alaLinea a:hover{border-bottom-color:var(--nacar);text-shadow:0 0 14px rgba(239,230,247,.5)}
+  .alaLinea span{display:block;font-family:'Cardo',serif;font-style:italic;font-size:14px;
+    color:var(--tenue);margin-top:5px}
+
+  footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--linea);
+    font-size:12px;color:var(--tenue)}
+  footer a{color:var(--nacar);text-decoration:none;
+    border-bottom:1px solid rgba(239,230,247,.32)}
+  footer a:hover{border-bottom-color:var(--nacar)}
+
+  @media (min-width:640px){
+    .ficha{padding:24px 22px 18px}
+    .que{font-size:15.5px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+    .ficha:hover,.ficha:focus-visible{transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="envoltorio">
+
+<header>
+  <p class="epigrafe">Matemáticas · 1.º y 2.º de ESO</p>
+  <h1>Materiales de aula</h1>
+  <p class="lema-casa">Manipulativos para mirar lo que se calcula</p>
+</header>
+
+<p class="intro">Catorce aplicaciones para practicar en clase o en casa. Cada una
+es un solo archivo: se abren en el navegador, funcionan en móvil y en pizarra
+digital y no piden instalar nada ni crear cuentas.</p>
+
+<a class="ficha jl" href="https://diazepamina-creator.github.io/terminal-jl/">
+  <span class="sello">J&amp;L</span>
+  <h2>Terminal de Despacho J&amp;L</h2>
+  <p class="lema">Álgebra · material del Dossier del Transportista</p>
+  <p class="que">Misiones de una empresa de transportes, con tres máquinas que
+  se abren cuando hacen falta: el camión operativo para reducir expresiones, la
+  báscula de muelle para resolver ecuaciones y la bodega para las de segundo
+  grado.</p>
+  <div class="temas">
+    <span class="tema">lenguaje algebraico</span>
+    <span class="tema">monomios</span>
+    <span class="tema">notables</span>
+    <span class="tema">ecuaciones</span>
+    <span class="tema">sistemas</span>
+    <span class="tema">2.º grado</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha griega" href="https://diazepamina-creator.github.io/la-palestra/">
+  <span class="sello">ἙΛ</span>
+  <h2>La palestra</h2>
+  <p class="lema">Números enteros · ἑλκυστίνδα</p>
+  <p class="que">Dos bandos tiran de una cuerda. El signo va dentro de cada
+  tirador, y el + y el − dicen si entra o se retira: donde se para la bandera
+  está el resultado. Nueve misiones que van de la fuerza y el bando a las
+  operaciones combinadas, con pociones que multiplican, potencias, un rayo de
+  Zeus y un escriba al que hay que cazar los errores.</p>
+  <div class="temas">
+    <span class="tema">valor absoluto</span>
+    <span class="tema">orden</span>
+    <span class="tema">suma y resta</span>
+    <span class="tema">producto</span>
+    <span class="tema">potencias</span>
+    <span class="tema">jerarquía</span>
+    <span class="tema">paréntesis</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha pizzeria" href="https://diazepamina-creator.github.io/grapadora-de-nick/">
+  <span class="sello">¾</span>
+  <h2>La grapadora de Nick</h2>
+  <p class="lema">Fracciones · cortar reparte, grapar junta</p>
+  <p class="que">El cortador parte la pizza y multiplica arriba y abajo; la
+  grapadora junta trozos y divide. Con esos dos gestos se sirve lo que pide
+  el cliente, se comparan fracciones —del mismo denominador a los iguales
+  disfrazados, con una apuesta en la pizarra antes de contar— y, cuando
+  Nicoleta llama por teléfono y el cortador ya no llega, la multiplicación
+  en cruz aparece demostrada sobre el papel.</p>
+  <div class="temas">
+    <span class="tema">fracciones equivalentes</span>
+    <span class="tema">comparación</span>
+    <span class="tema">denominador común</span>
+    <span class="tema">multiplicación en cruz</span>
+    <span class="tema">recta numérica</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha ciudad" href="https://diazepamina-creator.github.io/numeros-partidos/">
+  <span class="sello">−¾</span>
+  <h2>Los números partidos</h2>
+  <p class="lema">Números racionales · la ciudad</p>
+  <p class="que">Ocho casos en una ciudad de los años treinta, y una sola
+  herramienta: la cinta métrica que tiende Liz. Cada fracción es un punto de una
+  calle —con su sitio, su nombre y a veces varios nombres para el mismo sitio—,
+  y de ahí sale todo lo demás: comparar es mirar quién queda a la derecha, sumar
+  es juntar tramos, y las deudas siguen la cinta hacia la izquierda del cero.
+  Con acta imprimible de lo que se averiguó en cada caso.</p>
+  <div class="temas">
+    <span class="tema">recta numérica</span>
+    <span class="tema">equivalencia</span>
+    <span class="tema">comparación</span>
+    <span class="tema">exacto y periódico</span>
+    <span class="tema">suma y resta</span>
+    <span class="tema">fracción de cantidad</span>
+    <span class="tema">parte de una parte</span>
+    <span class="tema">negativos</span>
+    <span class="tema">castellano i valencià</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha estacion" href="https://diazepamina-creator.github.io/estacion-de-jefatron/">
+  <span class="sello">√2</span>
+  <h2>La estación de Jefatrón</h2>
+  <p class="lema">Naturales, enteros y fracciones · la recta</p>
+  <p class="que">Una estación perdida en el espacio, con niebla en los pasillos y todos sus
+  números en tubos nixie. Brinco, el portal, salta exactamente un tramo de viga, y cada número
+  es un sitio: su dirección dice cuántos saltos hay desde el cero. La estación crece con
+  encargos imposibles: del 3, cinco a la izquierda, abre el ala espejo de los enteros; llevar
+  algo al 7/2 obliga a partir el tramo y atracar módulos más pequeños, donde 2/4 resulta ser la
+  casa del 1/2. Y al final, una esquina a la que ninguna fracción llega. Con modo fácil y
+  teletransporte, proyector, práctica con QR y acta.</p>
+  <div class="temas">
+    <span class="tema">recta numérica</span>
+    <span class="tema">enteros</span>
+    <span class="tema">valor absoluto</span>
+    <span class="tema">orden</span>
+    <span class="tema">fracciones</span>
+    <span class="tema">equivalencia</span>
+    <span class="tema">√2</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha templo" href="https://diazepamina-creator.github.io/miut-piezas/">
+  <span class="sello">2²·3</span>
+  <h2>Las piezas de Miut</h2>
+  <p class="lema">Factorización · mcd y mcm · la pareja</p>
+  <p class="que">Cada número es una bolsa de piezas de puzle, una por factor primo,
+  y la gata Miut las mueve con sus patas sobre la mesa. Se rompe la piedra de un número
+  para factorizarlo; el mcd es la torre más grande que se construye igual con las piezas
+  de los dos, y el mcm la más pequeña donde caben los dos. Al voltear una torre aparece
+  el número que forman, y juntando las dos torres se ve que mcd · mcm = a · b. Cuatro
+  etapas retiran el andamiaje: de piezas de colores a solo la pregunta escrita. Vale
+  para primero y para segundo.</p>
+  <div class="temas">
+    <span class="tema">factorización</span>
+    <span class="tema">potencias</span>
+    <span class="tema">criterios</span>
+    <span class="tema">mcd y mcm</span>
+    <span class="tema">mcd · mcm = a · b</span>
+    <span class="tema">1.º y 2.º</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha obra" href="https://diazepamina-creator.github.io/obra-de-jefeops/">
+  <span class="sello">56</span>
+  <h2>La obra de Jefeops</h2>
+  <p class="lema">Cuerpos y volúmenes · codos y palmos</p>
+  <p class="que">Una pirámide a medio levantar es un tronco de pirámide, y hay que
+  saber cuánta piedra lleva antes de subirla. Cinco salas y una sola idea: un cuerpo se
+  mide llenándolo. Los bloques del patio dan el área de la base por la altura, tres
+  pirámides vertidas llenan su caja justa, y el tronco sale de la cuenta que un escriba
+  egipcio dejó escrita hace casi cuatro mil años. Con el seked —los palmos que se mete la
+  cara por cada codo que sube—, que es una razón antes de que nadie la llamara así. Y un
+  taller de práctica con hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">prisma</span>
+    <span class="tema">cilindro</span>
+    <span class="tema">pirámide</span>
+    <span class="tema">tronco</span>
+    <span class="tema">papiro de moscú</span>
+    <span class="tema">pendiente</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha estepa" href="https://diazepamina-creator.github.io/recuento-de-jefen-giskan/">
+  <span class="sello">10⁴</span>
+  <h2>El recuento de Jefén Giskan</h2>
+  <p class="lema">Potencias de diez · notación científica</p>
+  <p class="que">El ejército de la estepa se contaba en potencias de diez, y cada una tenía su
+  nombre: diez jinetes un arban, diez arbanes un zuun, diez zuunes un myangan, diez myanganes un
+  tumen. Una potencia de diez es un sitio en el recuento: cinco diales que acarrean, una escalera
+  por la que suben las cifras mientras la coma se queda quieta, un mensajero que dice el ejército
+  en corto y un reparto de botín por debajo del jinete. El alumno asciende de jinete a jefe de
+  tumen, que es subir de nivel en la potencia de diez. Con guía, glosario, albarán, taller y
+  hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">potencias de diez</span>
+    <span class="tema">valor posicional</span>
+    <span class="tema">notación científica</span>
+    <span class="tema">exponente negativo</span>
+    <span class="tema">producto de potencias</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha taller" href="https://diazepamina-creator.github.io/taller-de-exequias/">
+  <span class="sello">π·r²</span>
+  <h2>El taller de Exequias</h2>
+  <p class="lema">Áreas y capacidad · el taller de ánforas</p>
+  <p class="que">El mismo barro, extendido en el suelo o levantado en vasija. Lo que cubre una
+  figura se cuenta con cuadrados de un palmo: el rectángulo se cuenta, el triángulo se corta por
+  la diagonal, el paralelogramo se corta y se mueve, el trapecio se pega con su gemelo. El disco
+  del torno se corta en sectores y se recoloca en zigzag hasta que π·r² sale solo, y se dice
+  honestamente que eso es un límite. Y lo que cabe en una vasija se mide como se ha medido siempre
+  en un taller, llenando: cuántas kylikes caben en una hidria, cuántos choes en un ánfora, cuántos
+  cubos de un palmo, que hoy se llaman litros. Exequias pide y contesta Quelona, la tortuga del taller,
+  que es lenta y no se equivoca. Con figuras rojas o figuras negras, guía, glosario, sello, taller y hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">área</span>
+    <span class="tema">cortar y mover</span>
+    <span class="tema">trapecio</span>
+    <span class="tema">círculo</span>
+    <span class="tema">capacidad</span>
+    <span class="tema">litro</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha justas" href="https://diazepamina-creator.github.io/justas-de-cachalote/">
+  <span class="sello">1/6</span>
+  <h2>Las justas de Cachalote del Lago</h2>
+  <p class="lema">Azar y probabilidad · el patio de armas</p>
+  <p class="que">El caballero más grande del reino, el que menos cabe en la armadura y el único que
+  sujeta la lanza con una aleta, lleva el sorteo del torneo y la mesa de dados de la taberna. La
+  probabilidad es contar, y hay dos cuentas que no son la misma: la de antes, en la lista de lo que
+  puede salir, y la de después, en la mesa con lo que ha salido. Un yelmo con siete nombres, un dado
+  honrado y otro cargado con el que la regla de Laplace no vale, la tabla de treinta y seis casillas,
+  doce escudos en una tabla de dos por dos, y una banca que paga cuatro donde lo justo son cinco: por
+  eso la casa siempre gana. Contesta Percebal, el escudero percebe, que no se mueve y por eso cuenta.
+  Con guía, glosario, pergamino, taller y hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">espacio muestral</span>
+    <span class="tema">laplace</span>
+    <span class="tema">frecuencia</span>
+    <span class="tema">dos dados</span>
+    <span class="tema">o, y, no</span>
+    <span class="tema">juego justo</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha corte" href="https://diazepamina-creator.github.io/corte-de-jefarturo/">
+  <span class="sello">2⁶⁴</span>
+  <h2>La corte de Jefarturo</h2>
+  <p class="lema">Potencias y raíces · el castillo</p>
+  <p class="que">Un rey, un tablero y un grano de trigo que se dobla casilla a casilla hasta que no
+  cabe en el reino. Una potencia es doblar, o triplicar, tantas veces como diga el exponente: el
+  número de abajo es lo que se repite y el de arriba cuenta las veces, y por eso 2⁹ no es dos por
+  nueve. El tablero de sesenta y cuatro casillas con los granos escritos enteros hasta las veinte
+  cifras, el árbol del reino donde apilar niveles es sumar exponentes, el patio cuadrado cuya raíz
+  es el lado, el aljibe donde la raíz se afina por tanteo y no cuadra nunca, y la cuenta del
+  tesorero, que suma mil por casilla y pierde igual. Contesta Listosín, mago de la corte, con la
+  barba que se dobla al tocarla. Con guía, glosario, carta real, taller y hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">potencias</span>
+    <span class="tema">exponente cero</span>
+    <span class="tema">propiedades</span>
+    <span class="tema">cuadrados perfectos</span>
+    <span class="tema">raíz cuadrada</span>
+    <span class="tema">doblar contra sumar</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<div class="separador" aria-hidden="true"><i></i><span class="cero"></span></div>
+
+<a class="ficha estanque" href="https://diazepamina-creator.github.io/estanque-de-jefeyasu/">
+  <span class="sello">(3, 5)</span>
+  <h2>El estanque de Jefeyasu</h2>
+  <p class="lema">Sistemas de ecuaciones · el estanque</p>
+  <p class="que">En el estanque hay grullas y tortugas: ocho cabezas y veintiséis patas. Con ocho
+  cabezas hay nueve repartos, y solo uno da veintiséis patas. Un sistema son dos cuentas sobre las
+  mismas cosas que tienen que salir a la vez, y la solución es la pareja que cumple las dos. El
+  estanque con sus repartos, la tablilla donde se escribe con letras y se comprueba sustituyendo,
+  el ábaco donde suponer que todas son grullas resulta ser reducir, la sustitución y la igualación
+  con la expresión que baja al hueco como un sello, y el jardín de las dos sendas: se cruzan,
+  paralelas o la misma. Contesta Listaseki, el que echa las cuentas, y comenta Orizuru, la grulla de
+  papel, que tiene una cabeza y ninguna pata. Con guía, glosario, tablilla, taller y hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">incógnitas</span>
+    <span class="tema">solución</span>
+    <span class="tema">reducción</span>
+    <span class="tema">sustitución</span>
+    <span class="tema">igualación</span>
+    <span class="tema">dos rectas</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<a class="ficha comite" href="https://diazepamina-creator.github.io/comite-de-reclamaciones/">
+  <span class="sello">130 %</span>
+  <h2>El comité de reclamaciones</h2>
+  <p class="lema">Estadística y gráficos · la fábrica</p>
+  <p class="que">Tres señores muy dignos se plantan a la puerta de la fábrica con una carpeta bajo el
+  brazo: cuarenta reclamaciones que hay que contar, dibujar y leer antes de que el director abra.
+  Una gráfica es una tabla dibujada, cada número un tamaño proporcional, y si el tamaño no va con
+  el número la gráfica miente aunque los números sean verdad. La carpeta donde los papeles caen a
+  su montón y se cuentan a palotes, el tablero con barras, sectores, líneas y pictograma, el
+  interrogatorio donde se lee con la regla contra el eje, el reparto donde la media nivela las
+  monedas y la mediana no se inmuta con el sueldo de Lord Lorza, y la gráfica de Lord Brybon, con
+  seis trampas que se encienden y se señalan. Con la carpeta propia para los datos de la clase,
+  modo aula, guía, glosario, acta, taller y hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">frecuencias</span>
+    <span class="tema">barras y sectores</span>
+    <span class="tema">leer gráficas</span>
+    <span class="tema">media, mediana, moda</span>
+    <span class="tema">gráficas que mienten</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<a class="ficha pasteleria" href="https://diazepamina-creator.github.io/pasteleria-de-nicoleta/">
+  <span class="sello">3 : 2</span>
+  <h2>La pastelería de Nicoleta</h2>
+  <p class="lema">Proporcionalidad y porcentajes · la calle</p>
+  <p class="que">Doblar una receta, la mitad de la mitad, tres huevos por cada dos tazas y el cartel de
+  las rebajas en el escaparate. Dos cantidades son proporcionales cuando al doblar una se dobla la
+  otra, y lo que no cambia es la razón: huevo y medio por taza, se hagan las magdalenas que se
+  hagan. La receta que se escala en la ficha y en la tabla (con el botón de sumar como Nick, que la
+  rompe), el mostrador donde se pasa por la unidad y la regla de tres son dos pasos, el horno donde
+  con el doble de hornos se tarda la mitad, la tarta de cien cuadraditos y el cartel de las
+  rebajas, con dos carteles seguidos que no vuelven al precio. Pregunta Liz, del periódico;
+  contesta Nicoleta; Migas, el ratón, comenta desde el borde. Con modo aula, guía, glosario, nota
+  de encargo, taller y hoja imprimible.</p>
+  <div class="temas">
+    <span class="tema">razón y proporción</span>
+    <span class="tema">directa e inversa</span>
+    <span class="tema">regla de tres</span>
+    <span class="tema">tanto por ciento</span>
+    <span class="tema">descuentos y aumentos</span>
+  </div>
+  <span class="abrir">Abrir →</span>
+</a>
+
+<p class="alaLinea"><a href="linea.html">La línea del tiempo →</a>
+  <span>De Egipto al futuro, en orden, y quién trabaja en cada época.</span></p>
+
+<footer>
+  © 2026 Andrés Asensio ·
+  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">CC BY-NC-ND 4.0</a><br>
+  La Terminal de Despacho J&amp;L surge del proyecto de innovación educativa
+  MAT180 (Generalitat Valenciana).
+</footer>
+
+</div>
+<script>
+try{ localStorage.removeItem('casa.llaves.v1'); }catch(e){}
+</script>
+</body>
+</html>
