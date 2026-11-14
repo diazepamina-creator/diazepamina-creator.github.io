@@ -1,0 +1,6 @@
+# Las páginas llevan <meta name="robots" content="noindex">: se rastrean para que el
+# buscador lea esa orden y no las indexe. Lo que no es una página (los README, la
+# licencia y los textos sueltos) no se rastrea. Vale para todo diazepamina-creator.github.io.
+User-agent: *
+Disallow: /*.md$
+Disallow: /*.txt$
